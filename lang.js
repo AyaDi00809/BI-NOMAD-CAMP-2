@@ -1,13 +1,5 @@
-function toggleSection(id) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        section.style.display = (section.id === id && section.style.display !== 'block') ? 'block' : 'none';
-    });
-}
-
-function toggleLanguage() {
-    const currentLang = document.documentElement.lang;
-    const ru = {
+const langData = {
+    ru: {
         title: "BI NOMAD CAMP",
         welcome: "Добро пожаловать в мир приключений, вдохновения и знаний!",
         aboutTitle: "О проекте",
@@ -22,8 +14,8 @@ function toggleLanguage() {
         contactText: "📧 Email: <br>📞 Телефон:<br>📍 Местоположение: Казахстан",
         extraTitle: "Дополнительная информация",
         extraText: "Здесь можно разместить любой дополнительный текст — вдохновляющий месседж, детали о бонусах, отзывы и т.д."
-    };
-    const kz = {
+    },
+    kz: {
         title: "BI NOMAD CAMP",
         welcome: "Шабыт пен білімге толы оқиғалар әлеміне қош келдіңіз!",
         aboutTitle: "Жоба туралы",
@@ -38,42 +30,35 @@ function toggleLanguage() {
         contactText: "📧 Email: <br>📞 Телефон:<br>📍 Орналасуы: Қазақстан",
         extraTitle: "Қосымша ақпарат",
         extraText: "Мұнда қосымша ақпарат орналастыруға болады — шабыттандыратын хабарламалар, бонустар, пікірлер және т.б."
-    };
-
-    const langData = currentLang === 'ru' ? kz : ru;
-    document.documentElement.lang = currentLang === 'ru' ? 'kz' : 'ru';
-
-    document.getElementById('title-text').textContent = langData.title;
-    document.getElementById('welcome').textContent = langData.welcome;
-    document.getElementById('about-title').textContent = langData.aboutTitle;
-    document.getElementById('about-text').textContent = langData.aboutText;
-    document.getElementById('info-title').textContent = langData.infoTitle;
-    document.getElementById('info-text').textContent = langData.infoText;
-    document.getElementById('program-title').textContent = langData.programTitle;
-    document.getElementById('program-text').textContent = langData.programText;
-    document.getElementById('schedule-title').textContent = langData.scheduleTitle;
-    document.getElementById('schedule-text').textContent = langData.scheduleText;
-    document.getElementById('contact-title').textContent = langData.contactTitle;
-    document.getElementById('contact-text').innerHTML = langData.contactText;
-    document.getElementById('extra-title').textContent = langData.extraTitle;
-    document.getElementById('extra-text').textContent = langData.extraText;
-}
-window.onload = () => {
-    if (document.documentElement.lang === 'kz') {
-        setLanguage('kz');
-    } else {
-        setLanguage('ru');
     }
 };
 
-function setLanguage(lang) {
-    if (lang === 'kz') {
-        document.documentElement.lang = 'kz';
-        document.getElementById('title-text').textContent = langData.kz.title;
-        document.getElementById('info-text').textContent = langData.kz.infoText;
-    } else if (lang === 'ru') {
-        document.documentElement.lang = 'ru';
-        document.getElementById('title-text').textContent = langData.ru.title;
-        document.getElementById('info-text').textContent = langData.ru.infoText;
-    }
+function toggleLanguage() {
+    const currentLang = document.documentElement.lang;
+    const newLang = currentLang === 'ru' ? 'kz' : 'ru';
+    document.documentElement.lang = newLang;
+    setLanguage(newLang);
 }
+
+function setLanguage(lang) {
+    const langContent = langData[lang];
+    document.getElementById('title-text').textContent = langContent.title;
+    document.getElementById('welcome').textContent = langContent.welcome;
+    document.getElementById('about-title').textContent = langContent.aboutTitle;
+    document.getElementById('about-text').textContent = langContent.aboutText;
+    document.getElementById('info-title').textContent = langContent.infoTitle;
+    document.getElementById('info-text').textContent = langContent.infoText;
+    document.getElementById('program-title').textContent = langContent.programTitle;
+    document.getElementById('program-text').textContent = langContent.programText;
+    document.getElementById('schedule-title').textContent = langContent.scheduleTitle;
+    document.getElementById('schedule-text').textContent = langContent.scheduleText;
+    document.getElementById('contact-title').textContent = langContent.contactTitle;
+    document.getElementById('contact-text').innerHTML = langContent.contactText;
+    document.getElementById('extra-title').textContent = langContent.extraTitle;
+    document.getElementById('extra-text').textContent = langContent.extraText;
+}
+
+window.onload = () => {
+    const initialLang = document.documentElement.lang === 'kz' ? 'kz' : 'ru';
+    setLanguage(initialLang);
+};
