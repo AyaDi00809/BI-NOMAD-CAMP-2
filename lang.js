@@ -58,3 +58,9 @@ function toggleLanguage() {
     document.getElementById('extra-title').textContent = langData.extraTitle;
     document.getElementById('extra-text').textContent = langData.extraText;
 }
+window.onload = () => {
+    if (document.documentElement.lang === 'kz') {
+        toggleLanguage();
+        toggleLanguage();
+    }
+};
