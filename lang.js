@@ -58,4 +58,18 @@ function setLanguage(lang) {
     document.getElementById('extra-text').textContent = langContent.extraText;
 }
 
+function toggleSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        if (section.id === sectionId) {
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        } else {
+            section.style.display = 'none';
+        }
+    });
+}
 
+window.onload = () => {
+    const initialLang = document.documentElement.lang === 'kz' ? 'kz' : 'ru';
+    setLanguage(initialLang);
+};
