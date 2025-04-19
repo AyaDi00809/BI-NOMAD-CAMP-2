@@ -43,7 +43,7 @@ function toggleLanguage() {
     const langData = currentLang === 'ru' ? kz : ru;
     document.documentElement.lang = currentLang === 'ru' ? 'kz' : 'ru';
 
-    document.getElementById('title').textContent = langData.title;
+    document.getElementById('title-text').textContent = langData.title;
     document.getElementById('welcome').textContent = langData.welcome;
     document.getElementById('about-title').textContent = langData.aboutTitle;
     document.getElementById('about-text').textContent = langData.aboutText;
