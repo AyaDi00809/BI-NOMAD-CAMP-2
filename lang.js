@@ -58,7 +58,4 @@ function setLanguage(lang) {
     document.getElementById('extra-text').textContent = langContent.extraText;
 }
 
-window.onload = () => {
-    const initialLang = document.documentElement.lang === 'kz' ? 'kz' : 'ru';
-    setLanguage(initialLang);
-};
+
