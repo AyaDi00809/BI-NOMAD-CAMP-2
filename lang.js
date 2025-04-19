@@ -60,7 +60,20 @@ function toggleLanguage() {
 }
 window.onload = () => {
     if (document.documentElement.lang === 'kz') {
-        toggleLanguage();
-        toggleLanguage();
+        setLanguage('kz');
+    } else {
+        setLanguage('ru');
     }
 };
+
+function setLanguage(lang) {
+    if (lang === 'kz') {
+        document.documentElement.lang = 'kz';
+        document.getElementById('title-text').textContent = langData.kz.title;
+        document.getElementById('info-text').textContent = langData.kz.infoText;
+    } else if (lang === 'ru') {
+        document.documentElement.lang = 'ru';
+        document.getElementById('title-text').textContent = langData.ru.title;
+        document.getElementById('info-text').textContent = langData.ru.infoText;
+    }
+}
