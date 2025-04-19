@@ -7,52 +7,63 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="language-toggle">
-        <button onclick="toggleLanguage()">Қазақша / Русский</button>
-    </div>
     <header>
         <h1>
             <span class="ornament-left">⎯⎯</span>
-            <span id="title-text"></span>
+            <span>BI NOMAD CAMP</span>
             <span class="ornament-right">⎯⎯</span>
         </h1>
-        <p id="welcome">Шабыт пен білімге толы оқиғалар әлеміне қош келдіңіз!</p>
+        <p>Шабыт пен білімге толы оқиғалар әлеміне қош келдіңіз!</p>
     </header>
     <main>
         <section class="main-info">
-            <h2 id="about-title"></h2>
-            <p id="about-text"></p>
+            <h2>Жоба туралы</h2>
+            <p>BI NOMAD CAMP — бұл жасөспірімдер мен жастарға арналған ерекше кеңістік, әр күні энергия мен жаңа таныстықтарға толы.</p>
         </section>
+
         <nav>
-            <button onclick="toggleSection('info')">О лагере</button>
-            <button onclick="toggleSection('program')">Программа</button>
-            <button onclick="toggleSection('schedule')">Расписание</button>
-            <button onclick="toggleSection('contact')">Контакты</button>
+            <button onclick="toggleSection('info')">Лагерь туралы</button>
+            <button onclick="toggleSection('program')">Бағдарлама</button>
+            <button onclick="toggleSection('schedule')">Кесте</button>
+            <button onclick="toggleSection('contact')">Байланыс</button>
         </nav>
+
         <section id="info" class="content-section">
-            <h2 id="info-title"></h2>
-            <p id="info-text"></p>
+            <h2>Лагерь туралы</h2>
+            <p>BI NOMAD CAMP — бұл жаңа форматтағы лагерь, жеке даму, технологиялар, спорт және өнер жобалары біріктірілген орын.</p>
         </section>
+
         <section id="program" class="content-section">
-            <h2 id="program-title"></h2>
-            <p id="program-text"></p>
+            <h2>Бағдарлама</h2>
+            <p>Күн сайын — шеберлік сағаттар, outdoor-челлендждер, командалық ойындар және кешкі іс-шаралар.</p>
         </section>
+
         <section id="schedule" class="content-section">
-            <h2 id="schedule-title"></h2>
-            <p id="schedule-text"></p>
+            <h2>Кесте</h2>
+            <p>1–15 шілде аралығы: таңғы жаттығу, таңғы ас, сабақтар, түскі ас, белсенділік, кешкі бағдарлама, от жанында отырыс.</p>
         </section>
+
         <section id="contact" class="content-section">
-            <h2 id="contact-title"></h2>
-            <p id="contact-text"></p>
+            <h2>Байланыс</h2>
+            <p>📧 Email: <br>📞 Телефон: <br>📍 Орналасуы: Қазақстан</p>
         </section>
+
         <section class="after-buttons-text">
-            <h2 id="extra-title"></h2>
-            <p id="extra-text"></p>
+            <h2>Қосымша ақпарат</h2>
+            <p>Мұнда қосымша ақпарат орналастыруға болады — шабыттандыратын хабарламалар, бонустар, пікірлер және т.б.</p>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 BI NOMAD CAMP | Все права защищены</p>
+        <p>&copy; 2025 BI NOMAD CAMP | Барлық құқықтар қорғалған</p>
     </footer>
-    <script src="lang.js"></script>
+
+    <script>
+        function toggleSection(id) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = (section.id === id && section.style.display !== 'block') ? 'block' : 'none';
+            });
+        }
+    </script>
 </body>
 </html>
