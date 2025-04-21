@@ -47,13 +47,13 @@ function setLanguage(lang) {
     document.getElementById('about-title').textContent = langContent.aboutTitle;
     document.getElementById('about-text').textContent = langContent.aboutText;
     document.getElementById('info-title').textContent = langContent.infoTitle;
-    document.getElementById('info-text').innerHTML = langContent.infoText; // Используем innerHTML для текста с HTML
+    document.getElementById('info-text').innerHTML = langContent.infoText; 
     document.getElementById('program-title').textContent = langContent.programTitle;
-    document.getElementById('program-text').innerHTML = langContent.programText; // Используем innerHTML для текста с HTML
+    document.getElementById('program-text').innerHTML = langContent.programText; 
     document.getElementById('schedule-title').textContent = langContent.scheduleTitle;
-    document.getElementById('schedule-text').innerHTML = langContent.scheduleText; // Используем innerHTML для текста с HTML
+    document.getElementById('schedule-text').innerHTML = langContent.scheduleText; 
     document.getElementById('contact-title').textContent = langContent.contactTitle;
-    document.getElementById('contact-text').innerHTML = langContent.contactText; // Используем innerHTML для текста с HTML
+    document.getElementById('contact-text').innerHTML = langContent.contactText; 
     document.getElementById('extra-title').textContent = langContent.extraTitle;
     document.getElementById('extra-text').textContent = langContent.extraText;
 
@@ -65,9 +65,15 @@ function toggleSection(sectionId) {
         section.style.display = 'none'; 
      });
 
+    function toggleSection(id) {
+        const sections = ['info', 'program', 'schedule', 'contact'];
+        sections.forEach(section => {
+            document.getElementById(section).style.display = section == id ? 'block' : 'none';
+        });
 }
 
 window.onload = () => {
     const initialLang = document.documentElement.lang === 'kz' ? 'kz' : 'ru';
     setLanguage(initialLang);
+    toggleSection('info');
 };
