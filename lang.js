@@ -56,6 +56,15 @@ function setLanguage(lang) {
     document.getElementById('contact-text').innerHTML = langContent.contactText; // Используем innerHTML для текста с HTML
     document.getElementById('extra-title').textContent = langContent.extraTitle;
     document.getElementById('extra-text').textContent = langContent.extraText;
+
+}
+
+function toggleSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(function(section) {
+        section.style.display = 'none'; 
+     });
+
 }
 
 window.onload = () => {
