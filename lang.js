@@ -64,12 +64,10 @@ function toggleSection(sectionId) {
     sections.forEach(function(section) {
         section.style.display = 'none'; 
      });
-
-    function toggleSection(id) {
-        const sections = ['info', 'program', 'schedule', 'contact'];
-        sections.forEach(section => {
-            document.getElementById(section).style.display = section == id ? 'block' : 'none';
-        });
+     const sectionToShow = documentElementById(sectionId);
+    if (sectionToShow) {
+        sectionToShow.style.display = 'block';
+    }
 }
 
 window.onload = () => {
