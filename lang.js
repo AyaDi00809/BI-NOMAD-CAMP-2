@@ -55,7 +55,7 @@ function setLanguage(lang) {
     document.getElementById('contact-title').textContent = langContent.contactTitle;
     document.getElementById('contact-text').innerHTML = langContent.contactText; 
     document.getElementById('extra-title').textContent = langContent.extraTitle;
-    document.getElementById('extra-text').textContent = langContent.extraText;
+    document.getElementById('extra-text').innerHTML = langContent.extraText;
 
 }
 
