@@ -64,7 +64,7 @@ function toggleSection(sectionId) {
     sections.forEach(function(section) {
         section.style.display = 'none'; 
      });
-     const sectionToShow = documentElementById(sectionId);
+     const sectionToShow = document.ElementById(sectionId);
     if (sectionToShow) {
         sectionToShow.style.display = 'block';
     }
